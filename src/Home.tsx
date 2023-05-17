@@ -12,6 +12,7 @@ import {
   RadioGroup,
   Stack,
   ButtonGroup,
+  Divider
 } from "@chakra-ui/react";
 import { FaPlay } from "react-icons/fa";
 
@@ -31,8 +32,8 @@ const lengths = [
 ];
 
 const Page = () => {
-  const [selectedGuru, setSelectedGuru] = useState("");
-  const [selectedLength, setSelectedLength] = useState("");
+  const [selectedGuru, setSelectedGuru] = useState("Ethan");
+  const [selectedLength, setSelectedLength] = useState("5");
 
   const handleGuruChange = (value: string) => {
     setSelectedGuru(value);
@@ -49,18 +50,18 @@ const Page = () => {
 
   return (
     <Stack align={"center"}>
-        <Flex align="center" justify="center" mt={4} mb={6}>
+        <Flex align="center" justify="center" mt={4} mb={12}>
         <Text fontSize="2xl" mr={2}>
           🌱
         </Text>
-        <Heading as="h1" size="lg">
+        <Heading as="h2" size="lg" color='#6DB714'>
           claritea
         </Heading>
       </Flex>
-      <Heading as="h3" size="sm" textAlign="center" mb={6}>
+      <Heading as="h3" size="sm" textAlign="center" mt={6} mb={6}>
         Choose your guru
       </Heading>
-      <Stack>
+      <Stack align={"center"}>
         {gurus.map((guru, index) => (
           <Flex align={"center"} justify={"center"}>
             <Avatar name={guru.name} src={guru.image} mr={4} />
@@ -70,9 +71,9 @@ const Page = () => {
               colorScheme={
                 selectedGuru === guru.name ? "blackAlpha" : undefined
               }
-              size="lg"
+              size="md"
               borderRadius="md"
-              my={2}
+              my={1}
               _hover={{
                 cursor: "pointer",
               }}
@@ -88,7 +89,12 @@ const Page = () => {
           </Flex>
         ))}
       </Stack>
-        <Heading as="h3" size="sm" textAlign="center" mb={6}>
+      <br></br>
+      <br></br>
+      <Divider mt={6} mb={6} width={"400px"} /> {/* Add Divider component */}
+      <br></br>
+      <Stack align={"center"}>
+        <Heading as="h3" size="sm" textAlign="center" mt={6} mb={2}>
             Choose your length in minutes
         </Heading>
         <ButtonGroup ml={4}>
@@ -99,8 +105,9 @@ const Page = () => {
               colorScheme={
                 selectedLength === length.value ? 'blackAlpha' : undefined
             }
-              size="lg"
+              size="md"
               borderRadius="md"
+              my={1}
               _hover={{
                 cursor: 'pointer',
               }}
@@ -115,17 +122,28 @@ const Page = () => {
             </Button>
           ))}
         </ButtonGroup>
-      <Flex width={"30rem"}>
-        <Button
+        </Stack>
+        <Stack align={"center"}>
+      <Flex width={"25rem"} mt={12} mb={12}>
+      <Button
+          position="fixed"
+          bottom={4}
+          left={0}
+          right={0}
+          mx="auto"
+          width="fit-content"
           colorScheme="teal"
-          leftIcon={<FaPlay />}
-          onClick={handleStartSession}
           size="lg"
-          w="100%"
+          borderRadius="lg"
+          px={6}
+          py={3}
+          onClick={handleStartSession}
         >
+          <FaPlay style={{ marginRight: '0.5rem' }} />
           Start Session
         </Button>
       </Flex>
+      </Stack>
     </Stack>
   );
 };
