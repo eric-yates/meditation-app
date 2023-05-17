@@ -49,9 +49,14 @@ const Page = () => {
 
   return (
     <Stack align={"center"}>
-     <Heading as="h1" size="lg" textAlign="center" mt={4} mb={6}>
-        claritea
-      </Heading>
+        <Flex align="center" justify="center" mt={4} mb={6}>
+        <Text fontSize="2xl" mr={2}>
+          🌱
+        </Text>
+        <Heading as="h1" size="lg">
+          claritea
+        </Heading>
+      </Flex>
       <Heading as="h3" size="sm" textAlign="center" mb={6}>
         Choose your guru
       </Heading>
@@ -90,17 +95,23 @@ const Page = () => {
           {lengths.map((length) => (
             <Button
               key={length.value}
-              colorScheme={selectedLength === length.value ? 'primaryButton' : 'white'}
+              variant={selectedLength === length.value ? "solid" : "outline"}
+              colorScheme={
+                selectedLength === length.value ? 'blackAlpha' : undefined
+            }
               size="lg"
               borderRadius="md"
-              px={4}
-              py={2}
               _hover={{
                 cursor: 'pointer',
               }}
+              width={"100px"}
               onClick={() => handleLengthChange(length.value)}
             >
-              {length.label}
+            <Flex align="center" justify="space-between">
+                <Text flex={4} ml={4} mr={2} width="10rem">
+                {length.label}
+                </Text>
+            </Flex>
             </Button>
           ))}
         </ButtonGroup>
