@@ -16,12 +16,12 @@ import {
 import { FaPlay } from "react-icons/fa";
 
 const gurus = [
-  { name: "Ethan" },
-  { name: "Ava" },
-  { name: "Aarva" },
-  { name: "Nari" },
-  { name: "Jamal" },
-  { name: "Zara" },
+  { name: "Ethan", image: "Ethan.png"},
+  { name: "Ava" , image: "Ava.png"},
+  { name: "Aarav" , image: "Aarav.png"},
+  { name: "Nari" , image: "Nari.png"},
+  { name: "Jamal", image: "Jamal.png" },
+  { name: "Zara" , image: "Zara.png"},
 ];
 
 const lengths = [
@@ -58,7 +58,7 @@ const Page = () => {
       <Stack>
         {gurus.map((guru, index) => (
           <Flex align={"center"} justify={"center"}>
-            <Avatar name={guru.name} src="#" mr={4} />
+            <Avatar name={guru.name} src={guru.image} mr={4} />
             <Button
               key={index}
               variant={selectedGuru === guru.name ? "solid" : "outline"}
