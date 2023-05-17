@@ -8,9 +8,7 @@ import { extendTheme } from "@chakra-ui/react";
 function App() {
   const theme = extendTheme({
     colors: {
-      primary: {
-        main: "#4F4F4F",
-      },
+      primaryButton: '#4F4F4F',
     },
   });
 

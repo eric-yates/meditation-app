@@ -49,7 +49,10 @@ const Page = () => {
 
   return (
     <Stack align={"center"}>
-      <Heading as="h1" size="lg" mb={4}>
+     <Heading as="h1" size="lg" textAlign="center" mt={4} mb={6}>
+        claritea
+      </Heading>
+      <Heading as="h3" size="sm" textAlign="center" mb={6}>
         Choose your guru
       </Heading>
       <Stack>
@@ -80,40 +83,27 @@ const Page = () => {
           </Flex>
         ))}
       </Stack>
-      <Flex justify="center" align="center" mb={4}>
-        <Text>Select session length: </Text>
-        <RadioGroup
-          onChange={handleLengthChange}
-          value={selectedLength}
-          ml={4}
-          display="flex"
-          flexDirection="row"
-        >
-          <Stack direction="row">
-            {lengths.map((length) => (
-              <Radio
-                key={length.value}
-                value={length.value}
-                colorScheme={selectedLength === length.value ? "teal" : "gray"}
-                size="lg"
-                borderRadius="md"
-                px={4}
-                py={2}
-                _checked={{
-                  bg: "teal.500",
-                  color: "white",
-                }}
-                _hover={{
-                  cursor: "pointer",
-                }}
-                onChange={() => handleLengthChange(length.value)}
-              >
-                {length.label}
-              </Radio>
-            ))}
-          </Stack>
-        </RadioGroup>
-      </Flex>
+        <Heading as="h3" size="sm" textAlign="center" mb={6}>
+            Choose your length in minutes
+        </Heading>
+        <ButtonGroup ml={4}>
+          {lengths.map((length) => (
+            <Button
+              key={length.value}
+              colorScheme={selectedLength === length.value ? 'primaryButton' : 'white'}
+              size="lg"
+              borderRadius="md"
+              px={4}
+              py={2}
+              _hover={{
+                cursor: 'pointer',
+              }}
+              onClick={() => handleLengthChange(length.value)}
+            >
+              {length.label}
+            </Button>
+          ))}
+        </ButtonGroup>
       <Flex width={"30rem"}>
         <Button
           colorScheme="teal"
