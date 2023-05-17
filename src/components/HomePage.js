@@ -13,7 +13,7 @@ import PlayButton from '../assets/play-button.png'
 
 const HomePage = (props) => {
 
-    const [selectedAgent, setSelectedAgent] = useState(null);
+    const [selectedAgent, setSelectedAgent] = useState('Ava');
     const [selectedDuration, setSelectedDuration] = useState(3);
     const [agentWarningGuard, setAgentWarningGuard] = useState(false);
     const [durationWarningGuard, setDurationWarningGuard] = useState(false);

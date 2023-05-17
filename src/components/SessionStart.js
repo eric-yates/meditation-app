@@ -45,7 +45,7 @@ const SessionStart = (props) => (
             size="lg"
             height="52.84px"
             onClick={() => {
-
+                props.setView('homePage', {})
             }}
             style={{
                 marginLeft: 'auto',
