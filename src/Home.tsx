@@ -54,11 +54,11 @@ const Page = () => {
         <Text fontSize="2xl" mr={2}>
           🌱
         </Text>
-        <Heading as="h2" size="lg" color='#6DB714'>
+        <Heading as="h2" size="lg" fontWeight="semibold" color='#6DB714'>
           claritea
         </Heading>
       </Flex>
-      <Heading as="h3" size="sm" textAlign="center" mt={6} mb={6}>
+      <Heading as="h3" size="sm" fontWeight="medium" textAlign="center" mt={6} mb={6}>
         Choose your guru
       </Heading>
       <Stack align={"center"}>
@@ -68,16 +68,19 @@ const Page = () => {
             <Button
               key={index}
               variant={selectedGuru === guru.name ? "solid" : "outline"}
-              colorScheme={
-                selectedGuru === guru.name ? "blackAlpha" : undefined
+              backgroundColor={
+                selectedGuru === guru.name ? '#4F4F4F' : undefined
               }
+              color={
+                selectedGuru=== guru.name ? '#F2F2F2' : "#1A202C"
+            }
               size="md"
               borderRadius="md"
               my={1}
               _hover={{
                 cursor: "pointer",
               }}
-              width={"300px"}
+              width={"250px"}
               onClick={() => handleGuruChange(guru.name)}
             >
               <Flex align="center" justify="space-between">
@@ -94,7 +97,7 @@ const Page = () => {
       <Divider mt={6} mb={6} width={"400px"} /> {/* Add Divider component */}
       <br></br>
       <Stack align={"center"}>
-        <Heading as="h3" size="sm" textAlign="center" mt={6} mb={2}>
+        <Heading as="h3" size="sm" fontWeight="medium" textAlign="center" mt={6} mb={2}>
             Choose your length in minutes
         </Heading>
         <ButtonGroup ml={4}>
@@ -102,8 +105,11 @@ const Page = () => {
             <Button
               key={length.value}
               variant={selectedLength === length.value ? "solid" : "outline"}
-              colorScheme={
-                selectedLength === length.value ? 'blackAlpha' : undefined
+              backgroundColor={
+                selectedLength === length.value ? '#4F4F4F' : undefined
+              }
+              color={
+                selectedLength === length.value ? '#F2F2F2' : "#1A202C"
             }
               size="md"
               borderRadius="md"
@@ -111,7 +117,7 @@ const Page = () => {
               _hover={{
                 cursor: 'pointer',
               }}
-              width={"100px"}
+              width={"150px"}
               onClick={() => handleLengthChange(length.value)}
             >
             <Flex align="center" justify="space-between">
@@ -132,7 +138,7 @@ const Page = () => {
           right={0}
           mx="auto"
           width="fit-content"
-          colorScheme="teal"
+          backgroundColor="#6FCF97"
           size="lg"
           borderRadius="lg"
           px={6}

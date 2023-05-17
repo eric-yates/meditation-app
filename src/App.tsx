@@ -8,7 +8,18 @@ import { extendTheme } from "@chakra-ui/react";
 function App() {
   const theme = extendTheme({
     colors: {
-      primaryButton: '#4F4F4F',
+      primaryButton: "#4F4F4F",
+    },
+    fonts: {
+      heading: `'Inter', sans-serif`,
+      body: `'Inter', sans-serif`,
+    },
+    h2: {
+      // you can also use responsive styles
+      fontWeight: 'medium',
+    },
+    h3: {
+      fontWeight: 'medium',
     },
   });
 
