@@ -24,6 +24,7 @@ const HomePage = (props) => {
         const isSelected = selectedAgent === name || (selectedAgent === null && name === 'Ava');
 
         const handleClick = () => {
+
             if (isSelected) {
               setSelectedAgent(null);
             } else {
@@ -244,6 +245,7 @@ const HomePage = (props) => {
                 borderRadius="lg"
                 px={6}
                 py={3}
+                color='#333333'
                 onClick={() => {
                     if (selectedAgent && selectedDuration) {
                         props.setView('sessionStart')
@@ -269,10 +271,11 @@ const HomePage = (props) => {
                 //   }}
                 _hover={{
                     cursor: 'pointer',
-                    backgroundColor: '#5E9E10'
+                    backgroundColor: '#5E9E10',
+                    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)'
                     }}
                 >
-                <FaPlay style={{ height: '1rem', marginRight: '0.5rem' }} />
+                <FaPlay style={{ height: '1rem', marginRight: '0.5rem', color: '#333333'}} />
                 Start Session
                 
                 </Button>
