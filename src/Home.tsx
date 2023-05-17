@@ -79,12 +79,14 @@ const Page = () => {
               my={1}
               _hover={{
                 cursor: "pointer",
+                backgroundColor: "#E2E8F0",
+                color: "#1A202C"
               }}
-              width={"220px"}
+              width={"15rem"}
               onClick={() => handleGuruChange(guru.name)}
             >
               <Flex align="center" justify="space-between">
-                <Text flex={4} ml={4} mr={2} width="10rem">
+                <Text flex={4} ml={4} mr={2} >
                   {guru.name}
                 </Text>
               </Flex>
@@ -94,9 +96,9 @@ const Page = () => {
       </Stack>
       <br></br>
       <br></br>
-      <Divider mt={6} mb={6} width={"400px"} /> {/* Add Divider component */}
+      <Divider mt={6} mb={6} width={"27rem"} /> {/* Add Divider component */}
       <br></br>
-      <Stack align={"center"}>
+      <Stack align={"center"} textAlign={"center"}>
         <Heading as="h3" size="sm" fontWeight="medium" textAlign="center" mt={6} mb={2}>
             Choose your length in minutes
         </Heading>
@@ -109,19 +111,21 @@ const Page = () => {
                 selectedLength === length.value ? '#4F4F4F' : undefined
               }
               color={
-                selectedLength === length.value ? '#F2F2F2' : "#1A202C"
+                selectedLength === length.value ? '#F2F2F2' : undefined
             }
               size="md"
               borderRadius="md"
               my={1}
               _hover={{
                 cursor: 'pointer',
+                backgroundColor: "#E2E8F0",
+                color: "#1A202C"
               }}
-              width={"130px"}
+              width={"8rem"}
               onClick={() => handleLengthChange(length.value)}
             >
             <Flex align="center" justify="space-between">
-                <Text flex={4} ml={4} mr={2} width="10rem">
+                <Text flex={4}>
                 {length.label}
                 </Text>
             </Flex>
@@ -157,7 +161,8 @@ const Page = () => {
 
         //   }}
         _hover={{
-                backgroundColor: "#38A169"
+            cursor: 'pointer',
+            backgroundColor: '#38A169'
               }}
         >
           <FaPlay style={{ marginRight: '0.5rem' }} />
