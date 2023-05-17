@@ -20,6 +20,16 @@ const HomePage = (props) => {
     const [durationWarningGuard, setDurationWarningGuard] = useState(false);
 
     const Agent = ({ name, src, pro }) => {
+        const isSelectable = pro === null;
+        const isSelected = selectedAgent === name || (selectedAgent === null && name === 'Ava');
+
+        const handleClick = () => {
+            if (isSelected) {
+              setSelectedAgent(null);
+            } else {
+              setSelectedAgent(name);
+            }
+          };
 
         return (
             <div
@@ -30,6 +40,7 @@ const HomePage = (props) => {
                         setSelectedAgent(name)
                     }
                 }}
+                
 
                 style={{
                     display: 'flex',
@@ -46,24 +57,54 @@ const HomePage = (props) => {
                     border: selectedAgent === name ? '0.5px solid #E2E8F0' : '0.5px solid #E2E8F0',
                     borderRadius: 100
                 }}/>
+                <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
                 <Button
                     size="md"
                     borderRadius="md"
                     width="15rem"
                     height="3rem"
                     style={{
-                        backgroundColor: selectedAgent === name ? '#4F4F4F' : 'white',
+                        backgroundColor: pro !== null ? '#EDF2F7': selectedAgent === name ? '#4F4F4F' : 'white',
                         border: selectedAgent === name ? null : '0.5px solid #E2E8F0',
-                        color: selectedAgent === name ? 'white' : 'black'
+                        color: pro !== null? '#626262': selectedAgent === name ? 'white' : 'black',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        userSelect: isSelectable ? 'auto' : 'none',
+                        pointerEvents: isSelectable ? 'auto' : 'none',
+                        
                     }}
+                    onMouseEnter={(e) => {
+                        // e.target.style.border = '2px solid #E2E8F0';
+                        e.target.style.boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.1)';
+                      }}
+                      onMouseLeave={(e) => {
+                        // e.target.style.border = '0.5px solid #E2E8F0';
+                        e.target.style.boxShadow = 'none';
+                      }}
                 >
                     {name}
+                    {pro !== null && (
+                    <img
+                        src={pro}
+                        alt="Crown"
+                        style={{
+                        marginLeft: 5,
+                        height: '1rem',
+                        width: 'auto',
+                        }}
+                    />
+                    )}
+
+                    
+
                 </Button>
+                </div>
             </div>
         );
     };
 
-    const Duration = ({ duration, marginLeft='auto', marginRight='auto'}) => {
+    const Duration = ({ duration, pro, marginLeft='auto', marginRight='auto'}) => {
 
         return (
             <Button
@@ -78,11 +119,23 @@ const HomePage = (props) => {
                 style={{
                     marginLeft: marginLeft,
                     marginRight: marginRight,
-                    backgroundColor: selectedDuration === duration ? '#4F4F4F' : 'white',
+                    backgroundColor: pro !== null ? '#EDF2F7': selectedDuration === duration ? '#4F4F4F' : 'white',
                     border: selectedDuration === duration ? null : '0.5px solid #E2E8F0',
-                    color: selectedDuration === duration? 'white' : 'black'
+                    color: pro !== null? '#626262': selectedDuration === duration ? 'white' : 'black'
                 }}
-            >{ duration }
+            >
+            { duration }
+            {pro !== null && (
+                    <img
+                        src={pro}
+                        alt="Crown"
+                        style={{
+                        marginLeft: 5,
+                        height: '1rem',
+                        width: 'auto',
+                        }}
+                    />
+            )}
             </Button>
         );
     }
@@ -186,7 +239,7 @@ const HomePage = (props) => {
                 right={4}
                 mx="auto"
                 width="fit-content"
-                backgroundColor="#6FCF97"
+                backgroundColor="#6DB714"
                 size="lg"
                 borderRadius="lg"
                 px={6}
@@ -216,12 +269,12 @@ const HomePage = (props) => {
                 //   }}
                 _hover={{
                     cursor: 'pointer',
-                    backgroundColor: '#38A169'
+                    backgroundColor: '#5E9E10'
                     }}
                 >
                 <FaPlay style={{ height: '1rem', marginRight: '0.5rem' }} />
                 Start Session
-                {/* <Crown></Crown> */}
+                
                 </Button>
       </Stack>
             <span className="unsupported"/>
