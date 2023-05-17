@@ -54,7 +54,7 @@ const Page = () => {
         <Text fontSize="2xl" mr={2}>
           🌱
         </Text>
-        <Heading as="h2" size="lg" fontWeight="semibold" color='#6DB714'>
+        <Heading as="h3" size="md" fontWeight="semibold" color='#6DB714'>
           claritea
         </Heading>
       </Flex>
@@ -80,7 +80,7 @@ const Page = () => {
               _hover={{
                 cursor: "pointer",
               }}
-              width={"250px"}
+              width={"220px"}
               onClick={() => handleGuruChange(guru.name)}
             >
               <Flex align="center" justify="space-between">
@@ -117,7 +117,7 @@ const Page = () => {
               _hover={{
                 cursor: 'pointer',
               }}
-              width={"150px"}
+              width={"130px"}
               onClick={() => handleLengthChange(length.value)}
             >
             <Flex align="center" justify="space-between">
@@ -131,6 +131,7 @@ const Page = () => {
         </Stack>
         <Stack align={"center"}>
       <Flex width={"25rem"} mt={12} mb={12}>
+
       <Button
           position="fixed"
           bottom={4}
@@ -144,6 +145,20 @@ const Page = () => {
           px={6}
           py={3}
           onClick={handleStartSession}
+        //   _before={{
+        //     content: '""',
+        //     position: 'absolute',
+        //     top: 0,
+        //     left: 0,
+        //     right: 0,
+        //     bottom: 0,
+        //     zIndex: -1,
+        //     backdropFilter: 'blur(10px)',
+
+        //   }}
+        _hover={{
+                backgroundColor: "#38A169"
+              }}
         >
           <FaPlay style={{ marginRight: '0.5rem' }} />
           Start Session
