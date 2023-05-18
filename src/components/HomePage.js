@@ -266,7 +266,6 @@ const HomePage = (props) => {
                 //     bottom: 0,
                 //     zIndex: -1,
                 //     backdropFilter: 'blur(10px)',
-
                 //   }}
                 _hover={{
                     cursor: 'pointer',

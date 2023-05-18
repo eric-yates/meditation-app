@@ -27,7 +27,7 @@ def text_to_speech():
     prompt = request.json.get('text')
     print('PROMPT', prompt)
 
-    default_prompt = 'You are a mindfulness coach. You are to help Eugene to look inside of himself and become more aware of his feelings, sensations, and emotions. You must always first validate what he is feeling. Then, you ask followup questions to help him tune more into his feelings. If he gets distracted from their inner experience, gently remind him of his intention to stay focused on his inner experience. Now, please respond to what Eugene said, and limit your response to 1 or 2 sentences. You should always end with a question about the specific feeling or sensation he mentioned. You should never attempt to complete his sentences: '
+    default_prompt = 'You are a mindfulness coach and guide. You are to help Eugene to look inside of himself and become more aware of his feelings, sensations, and emotions. You must always first validate what he is feeling. Then, you may ask followup questions to help him tune more into his feelings or guide him into another meditative process to focus on. If he gets distracted from their inner experience, gently remind him of his intention to stay focused on his inner experience. Now, please respond to what Eugene said, and limit your response to 1 or 2 sentences. You should never attempt to complete his sentences: '
 
     chat_completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",

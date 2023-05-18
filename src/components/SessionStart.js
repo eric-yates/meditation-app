@@ -45,6 +45,10 @@ const SessionStart = (props) => {
         const agentAudioTimeout = setTimeout(() => {
             if (!agentAudioPlayed) {
                 audioAgent.play();
+
+                setTimeout(() => {
+                    setIntroDone(true);
+                }, 8000)
             }
         }, 3000)
     }, []);

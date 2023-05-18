@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 
-cors = CORS()
+cors = CORS(resources={r"/predictions/text_to_speech": {"origins": "http://localhost:3000"}})
 
 
 def create_app():

@@ -9,10 +9,13 @@ const SpeechRecognitionComponent = ({ introDone }) => {
     let recognition = null;
 
     useEffect(() => {
+        console.log('RECORDING', introDone)
         setIsRecording(true);
     }, [introDone])
 
     useEffect(() => {
+
+        console.log('EFFECT', isRecording)
 
         if ('SpeechRecognition' in window) {
             recognition = new window.SpeechRecognition();
