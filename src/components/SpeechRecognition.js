@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import axios from "axios";
 
-const SpeechRecognitionComponent = () => {
+const SpeechRecognitionComponent = ({ introDone }) => {
     const [isRecording, setIsRecording] = useState(true);
     const [recordedChunks, setRecordedChunks] = useState([]);
     const [pauseTimeout, setPauseTimeout] = useState(null);
@@ -8,8 +9,10 @@ const SpeechRecognitionComponent = () => {
     let recognition = null;
 
     useEffect(() => {
+        setIsRecording(true);
+    }, [introDone])
 
-        console.log('EFFECT', isRecording, recordedChunks, transcript);
+    useEffect(() => {
 
         if ('SpeechRecognition' in window) {
             recognition = new window.SpeechRecognition();
@@ -35,11 +38,30 @@ const SpeechRecognitionComponent = () => {
     }, [isRecording]);
 
     const handleSpeechRecognitionResult = (event) => {
+        setIsRecording(false);
         const result = event.results[event.results.length - 1][0];
         const { transcript } = result;
 
         console.log('Transcript:', transcript);
         setTranscript(transcript);
+
+        if (!transcript) return '';
+
+        axios({
+            method: 'post',
+            url: 'http://127.0.0.1:5000/predictions/text_to_speech',
+            data: {text: transcript},
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((response) => {
+                console.log('Response:', response);
+                setIsRecording(true);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
 
         clearTimeout(pauseTimeout);
         setPauseTimeout(setTimeout(handlePauseDetection, 5000)); // 5 seconds
@@ -47,7 +69,6 @@ const SpeechRecognitionComponent = () => {
 
     const handleSpeechRecognitionEnd = () => {
         console.log('END', transcript)
-        setIsRecording(false);
     };
 
     const handlePauseDetection = () => {

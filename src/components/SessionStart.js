@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {Stack, Box, Progress, Text, Image, Button} from '@chakra-ui/react'
+import axios from 'axios';
 import { ArrowBackIcon } from '@chakra-ui/icons'
 
 import SessionBackground from '../assets/session-background.png';
@@ -12,6 +13,7 @@ import PlayButton from '../assets/play-button.png';
 const SessionStart = (props) => {
 
     const [agentAudioPlayed, setAgentAudioPlayed] = useState(false);
+    const [introDone, setIntroDone] = useState(false);
 
     const audioAgent = new Audio('/intro.mp3');
     const audioBackground = new Audio('/background.mp3');
@@ -83,7 +85,7 @@ const SessionStart = (props) => {
             {/*        props.setView('homePage', {});*/}
             {/*    }}*/}
             {/*    style={{height: 29, width: 29, position: 'absolute', top: 57.5, left: 640}}/>*/}
-            <SpeechRecognition />
+            <SpeechRecognition introDone={introDone} />
             <Box style={{display: 'flex', justifyContent: 'center'}}>
                 <ProgressBar durationMinutes={3} style={{width: 400}}/>
             </Box>

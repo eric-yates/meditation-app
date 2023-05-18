@@ -239,7 +239,8 @@ const HomePage = (props) => {
                 right={4}
                 mx="auto"
                 width="fit-content"
-                backgroundColor="#6DB714"
+                backgroundColor="#5E9E10"
+                color="white"
                 size="lg"
                 borderRadius="lg"
                 px={6}
